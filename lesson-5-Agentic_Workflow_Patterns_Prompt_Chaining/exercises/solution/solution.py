@@ -10,7 +10,7 @@ client = OpenAI(
 
 def call_openai(system_prompt, user_prompt, model="gpt-3.5-turbo"):
     """Simple wrapper for OpenAI API calls"""
-    response = client.chat.completions.create(
+    response = client.chat.completions.create(1
         model=model,
         messages=[
             {"role": "system", "content": system_prompt},
