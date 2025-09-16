@@ -4,7 +4,14 @@ from dotenv import load_dotenv
 
 # Load environment variables and initialize OpenAI client
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai_api_key = "voc-744678734159874169548468bddf97879340.20823146"
+openai_api_key = "voc-744678734159874169548468bddf97879340.20823146"
+
+client = OpenAI(
+                    base_url = "https://openai.vocareum.com/v1",
+                    api_key=os.getenv("OPENAI_API_KEY")
+                    #api_key = openai_api_key
+                )
 
 # --- Helper Function for API Calls ---
 def call_openai(system_prompt, user_prompt, model="gpt-3.5-turbo"):
@@ -47,19 +54,81 @@ def pricing_strategist_agent(query, product_data=None, customer_data=None):
     
     # TODO: Implement this function
     # It should use product_data and customer_data to inform the pricing strategy
-    pass  # Replace this with your implementation
+    # Replace this with your implementation
+    user_prompt = f"""
+                    Pricing recommendation query: {query}.
+                    
+                    ***Inputs***:
+                    1. Customer data: {customer_data}
+                    2. Product data: {product_data}
+                    
+                    Recommend pricing strategy for the above query.
+                    Recommendation for pricing strategy formulate based analysis of the included product and customer data.
+                   """
 
+    print(f"Query: {query}")
+    print(f"Product data: {product_data}")
+    print(f"Customer data: {customer_data}")
+
+    return call_openai(system_prompt, user_prompt)
 
 # --- Routing Agent with LLM-Based Task Determination ---
-def routing_agent(query, *args):
+def routing_agent(query, context = None):
     """Routing agent that determines which agent to use based on the query."""
     
     # TODO: Implement the routing agent
     # 1. Use an LLM to analyze the query and determine the correct task type
     # 2. Route the query to the appropriate agent
     # 3. Return the results from the chosen agent
-    pass  # Replace this with your implementation
 
+    system_prompt = """You are an AI assistant that can route retail queries to the right agents. 
+    You will be given a query, and your job is to determine the appropriate agent to handle it.
+    Agents available:
+    - Product Researcher Agent: Researches product specifications, market trends, and competitor pricing.
+    - Customer Analyzer Agent: Analyzes customer feedback, preferences, and purchasing patterns.
+    - Pricing Strategist Agent: Recommends optimal pricing strategies based on research and analysis.
+    
+    Respond only with the agent's name, nothing else."""
+
+    user_prompt = f"Given the query: '{query}', which agent should handle this task?"
+
+    agent_choice = call_openai(system_prompt, user_prompt)
+    print(f"Selected agent: {agent_choice}")
+
+    # Route the query to the correct agent based on the choice
+    if "Product Researcher" in agent_choice:
+        print("Routing query to Product Researcher Agent...")
+        return product_researcher_agent(query)
+
+    elif "Customer Analyzer" in agent_choice:
+        print("Routing query to Customer Analyzer Agent...")
+        return customer_analyzer_agent(query)
+
+    elif "Pricing Strategist" in agent_choice:
+        print("Routing query to Pricing Strategist Agent...")
+
+        # For pricing strategy, we might need additional information
+        # First, get product information
+        product_data = None
+        if context and "product_data" in context:
+            product_data = context["product_data"]
+        else:
+            print("Getting product information first...")
+            product_data = product_researcher_agent(query)
+
+        # Then, get customer insights
+        customer_data = None
+        if context and "customer_data" in context:
+            customer_data = context["customer_data"]
+        else:
+            print("Getting customer insights...")
+            customer_data = customer_analyzer_agent(query)
+
+        # Finally, determine pricing strategy using both inputs
+        return pricing_strategist_agent(query, product_data, customer_data)
+
+    else:
+        return f"Couldn't route query. Agent decision was: {agent_choice}"
 
 # --- Example Usage ---
 if __name__ == "__main__":
@@ -69,7 +138,7 @@ if __name__ == "__main__":
         "What do customers think about our premium coffee brand?",
         "What should be the optimal price for our new organic skincare line?"
     ]
-    
+
     # Process each query
     for query in queries:
         print(f"\nQuery: {query}")
@@ -77,3 +146,8 @@ if __name__ == "__main__":
         
         # TODO: Use the routing agent to process the query
         # Print the results
+        result = routing_agent(query)
+
+        print("\nResult:")
+        print(result)
+        print("\n" + "-" * 80)

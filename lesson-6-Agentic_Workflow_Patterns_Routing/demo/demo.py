@@ -101,7 +101,7 @@ def routing_agent(task_prompt, agents):
     
     system_prompt = f"""You are an expert AI routing assistant. Your job is to analyze a user's task prompt and route it to the most appropriate agent.
     You have the following agents available:
-    {agent_descriptions}
+    
 
     Analyze the user's task prompt below and determine which agent is the best fit.
     Respond only with the exact name of the agent (e.g., 'Code Generation Agent'), and nothing else.
@@ -116,7 +116,7 @@ def routing_agent(task_prompt, agents):
     # Find the chosen agent object and run it
     for agent in agents:
         if agent.name == agent_choice_name:
-            print(f"--- Routing task to {agent.name}... ---")
+            print(f"--- Routing task   to {agent.name}... ---")
             return agent.run(task_prompt)
             
     return f"Error: Could not find an agent named '{agent_choice_name}'. Please check the routing prompt."
