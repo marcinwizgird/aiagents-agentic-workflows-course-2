@@ -7,9 +7,6 @@ load_dotenv()
 
 print(os.getenv("OPENAI_API_KEY"))
 
-openai_api_key = "voc-744678734159874169548468bddf97879340.20823146"
-#openai_api_key = "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"
-
 client = OpenAI(
     base_url = "https://openai.vocareum.com/v1",
     #api_key=os.getenv("OPENAI_API_KEY"))
