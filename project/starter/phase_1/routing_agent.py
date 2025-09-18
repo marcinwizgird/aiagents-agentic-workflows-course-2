@@ -8,7 +8,8 @@ from workflow_agents.base_agents import KnowledgeAugmentedPromptAgent, RoutingAg
 load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
-openai_api_key =  "voc-744678734159874169548468bddf97879340.20823146"
+print(openai_api_key)
+#openai_api_key =  "voc-744678734159874169548468bddf97879340.20823146"
 
 persona = "You are a college professor"
 

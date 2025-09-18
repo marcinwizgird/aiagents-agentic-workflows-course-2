@@ -8,7 +8,7 @@ from workflow_agents.base_agents import KnowledgeAugmentedPromptAgent, Evaluatio
 load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
-openai_api_key =  "voc-744678734159874169548468bddf97879340.20823146"
+
 prompt = "What is the capital of France?"
 
 # Parameters for the Knowledge Agent

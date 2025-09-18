@@ -9,7 +9,7 @@ load_dotenv()
 
 # Define the parameters for the agent
 openai_api_key = os.getenv("OPENAI_API_KEY")
-openai_api_key =  "voc-744678734159874169548468bddf97879340.20823146"
+
 
 userPrompt = "What is the capital of France?"
 
