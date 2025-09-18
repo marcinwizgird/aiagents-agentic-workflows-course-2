@@ -321,36 +321,51 @@ class EvaluationAgent:
         }   
 
 
-'''
+
 class RoutingAgent():
 
     def __init__(self, openai_api_key, agents):
         # Initialize the agent with given attributes
         self.openai_api_key = openai_api_key
         # TODO: 1 - Define an attribute to hold the agents, call it agents
+        self.agents = agents
 
     def get_embedding(self, text):
-        client = OpenAI(api_key=self.openai_api_key)
+        client = OpenAI(
+            base_url = "https://openai.vocareum.com/v1",
+            api_key = self.openai_api_key
+        )
+
         # TODO: 2 - Write code to calculate the embedding of the text using the text-embedding-3-large model
         # Extract and return the embedding vector from the response
-        embedding = response.data[0].embedding
+        embeddingResponse = client.embeddings.create(
+                                                        input = text,
+                                                        model = "text-embedding-3-large",
+                                                    )
+
+        embedding = embeddingResponse.data[0].embedding
         return embedding 
 
     # TODO: 3 - Define a method to route user prompts to the appropriate agent
+    def route(self, user_input):
         # TODO: 4 - Compute the embedding of the user input prompt
-        input_emb = 
+        inputEmbed = self.get_embedding(user_input)
         best_agent = None
         best_score = -1
 
         for agent in self.agents:
             # TODO: 5 - Compute the embedding of the agent description
-            if agent_emb is None:
+            agentEmbed = self.get_embedding(agent["description"])
+            if agentEmbed is None:
                 continue
 
-            similarity = np.dot(input_emb, agent_emb) / (np.linalg.norm(input_emb) * np.linalg.norm(agent_emb))
+            similarity = np.dot(inputEmbed, agentEmbed) / (np.linalg.norm(inputEmbed) * np.linalg.norm(agentEmbed))
             print(similarity)
 
             # TODO: 6 - Add logic to select the best agent based on the similarity score between the user prompt and the agent descriptions
+            if similarity > best_score:
+                best_score = similarity
+                best_agent = agent
 
         if best_agent is None:
             return "Sorry, no suitable agent could be selected."
@@ -358,7 +373,6 @@ class RoutingAgent():
         print(f"[Router] Best agent: {best_agent['name']} (score={best_score:.3f})")
         return best_agent["func"](user_input)
 
-'''
 
 '''
 class ActionPlanningAgent:
