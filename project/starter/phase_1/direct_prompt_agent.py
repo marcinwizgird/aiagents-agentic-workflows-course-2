@@ -3,12 +3,14 @@
 from WorkflowAgents.# TODO: 1 - Import the DirectPromptAgent class from BaseAgents
 import os
 from dotenv import load_dotenv
+from workflow_agents.base_agents import KnowledgeAugmentedPromptAgent
 
 # Load environment variables from .env file
 load_dotenv()
 
 # TODO: 2 - Load the OpenAI API key from the environment variables
-openai_api_key = 
+openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key =
 
 prompt = "What is the Capital of France?"
 
