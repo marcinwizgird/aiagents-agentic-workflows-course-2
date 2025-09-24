@@ -1,0 +1,16 @@
+C:\Users\marci\anaconda3\envs\COURSERA_GENAI\python.exe "C:\Users\marci\OneDrive\DEV\EDU\UDACITY\AI Agents\Udacity AI Agent Course 2\aiagents-agentic-workflows-course-2\project\starter\phase_1\augmented_prompt_agent.py"
+What is the capital of France?
+Dear students,
+
+The capital of France is Paris.
+
+Sincerely,
+Your Professor
+
+    Question: How the system prompt specifying the persona affected the agent's response?
+
+    The LLM dispenses with the knowledge obtained during pre-training stored in the model weights.
+    The system prompt tailors the LLM responses to the specific context.
+
+
+Process finished with exit code 0

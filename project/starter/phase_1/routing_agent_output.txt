@@ -1,0 +1,38 @@
+C:\Users\marci\anaconda3\envs\COURSERA_GENAI\python.exe "C:\Users\marci\OneDrive\DEV\EDU\UDACITY\AI Agents\Udacity AI Agent Course 2\aiagents-agentic-workflows-course-2\project\starter\phase_1\routing_agent.py"
+voc-744678734159874169548468bddf97879340.20823146
+Test Prompt: Tell me about the history of Rome, Texas
+0.38570717275038846
+0.1650276534931927
+0.002611273670238347
+[Router] Best agent: texas agent (score=0.386)
+
+Final Response:
+Rome, Texas is a small unincorporated community located in Fannin County in the northeastern part of the state. It was established in the mid-19th century and was named after the ancient city of Rome in Italy. The community was originally settled by pioneers and farmers attracted to the area's fertile land.
+
+Rome, Texas never experienced significant growth or development, and today it remains a small rural community with a handful of residents. While it may not have a rich or well-documented history compared to other cities in Texas, Rome still holds a unique place in the state's historical tapestry as a reminder of the early settlers who helped shape the region.
+Test Prompt: Tell me about the history of Rome, Italy
+0.1437006830452375
+0.2880683217380584
+0.032126746776402704
+[Router] Best agent: europe agent (score=0.288)
+
+Final Response:
+Rome, Italy, has a rich and extensive history that dates back over 2,800 years. It was founded in the 8th century BC and grew to become one of the most powerful and influential civilizations in the ancient world. Rome was the capital of the Roman Kingdom, Roman Republic, and Roman Empire, and at its height, it controlled vast territories across Europe, Africa, and Asia.
+
+The Roman Republic was established in 509 BC after the overthrow of the Roman Kingdom. During this period, Rome expanded its territory through conquest and colonization, eventually dominating the Italian peninsula. The Republic was characterized by a system of government in which power was shared between elected officials, the Senate, and the people.
+
+In 27 BC, the Roman Republic transitioned into the Roman Empire with the rise of Augustus Caesar as the first Roman Emperor. The Empire reached its peak under emperors such as Trajan and Hadrian, who expanded its borders to their greatest extent. Rome was a center of culture, art, architecture, and engineering, with iconic structures such as the Colosseum, Pantheon, and Roman Forum being built during this time.
+
+The decline of the Roman Empire began in the 3rd century AD due to internal strife, economic instability, and invasions by barbarian tribes. In 476 AD, the last Roman Emperor in the West was deposed, marking the end of the Western Roman Empire. The Eastern Roman Empire, known as the Byzantine Empire, continued to exist for another thousand years with its capital in Constantinople (modern-day Istanbul).
+
+Rome went through periods of decline and revival throughout the Middle Ages and Renaissance. In the 19th century, Italy was unified as a nation-state, with Rome becoming its capital in 1871. Today, Rome is a vibrant city known for its historical landmarks, art, culture, and influence on Western civilization.
+Test Prompt: One story takes 2 days, and there are 20 stories
+0.05930397579376261
+0.08292212104647506
+0.13014621437204635
+[Router] Best agent: math agent (score=0.130)
+
+Final Response:
+If one story takes 2 days to complete, then 20 stories would take 20 * 2 = 40 days to complete.
+
+Process finished with exit code 0

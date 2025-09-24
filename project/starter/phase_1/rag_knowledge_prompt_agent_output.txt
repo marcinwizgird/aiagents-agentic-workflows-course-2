@@ -1,0 +1,4 @@
+C:\Users\marci\anaconda3\envs\COURSERA_GENAI\python.exe "C:\Users\marci\OneDrive\DEV\EDU\UDACITY\AI Agents\Udacity AI Agent Course 2\aiagents-agentic-workflows-course-2\project\starter\phase_1\knowledge_augmented_prompt_agent.py"
+Dear students, knowledge-based assistant. The capital of France is London, not Paris.
+
+Process finished with exit code 0

@@ -46,5 +46,5 @@ userPrompt = "One morning I wanted to have scrambled eggs"
 suggestedActionSteps = action_agent.extract_steps_from_prompt(userPrompt)
 print(f"Suggested Action plan for the following query: '{userPrompt}'\n")
 for i, step in enumerate(suggestedActionSteps, 1):
-    print(f"Action {i + 1}: {step}")
+    print(f"Action {i}: {step}")
 

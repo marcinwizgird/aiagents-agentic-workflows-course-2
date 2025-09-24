@@ -1,0 +1,6 @@
+C:\Users\marci\anaconda3\envs\COURSERA_GENAI\python.exe "C:\Users\marci\OneDrive\DEV\EDU\UDACITY\AI Agents\Udacity AI Agent Course 2\aiagents-agentic-workflows-course-2\project\starter\phase_1\direct_prompt_agent.py"
+OK: voc-744678734159874169548468bddf97879340.20823146
+The capital of France is Paris.
+The replies is formulated based on the LLM knowledge - stored in LLM weights - obtained during pre-training or during fine-tuning process.
+
+Process finished with exit code 0
